@@ -15,6 +15,7 @@ export default class Main extends Component {
 
     componentDidMount() {
         this.loadProducts()
+        console.log(this.props.history)
     }
 
     loadProducts = async (page = 1) => {
