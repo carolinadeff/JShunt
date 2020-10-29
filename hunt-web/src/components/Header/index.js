@@ -1,22 +1,23 @@
-import React, {useState} from 'react';
+import React, { useContext } from 'react';
 
 import './styles.css';
+import { ResearchContext } from '../../Contexts/ResearchContext'
+
 
 function Header() {
-    // eslint-disable-next-line
-    const [search, setSearch] = useState('');
+    const { handleResearch } = useContext(ResearchContext)
 
-    function handlePesquisa(e) {
-        const pesquisa = e.target.value;
+    function handleKeyWord(e) {
+        const word = e.target.value;
         if(e.key === "Enter") {
-            setSearch(pesquisa)
+            handleResearch(word)
         }
     }
 
     return (
         <header id="main-header">
             <article className="header-content">
-                    <input onKeyDown={(e) => handlePesquisa(e)}/>
+                    <input onKeyDown={(e) => handleKeyWord(e)}/>
                 <h4>JSHunt</h4>
             </article>
         </header>
